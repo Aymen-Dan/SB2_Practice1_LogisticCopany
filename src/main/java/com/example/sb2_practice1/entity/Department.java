@@ -22,8 +22,9 @@ public class Department {
     private String depName;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "depCode", nullable = false, unique = true)
-    private String depCode;
+    private Long depCode;
 
     public String getDepName() {
         return depName;
@@ -34,12 +35,25 @@ public class Department {
     }
 
 
-    public String getDepCode() {
+    public Long getDepCode() {
         return depCode;
     }
 
-    public void setDepCode(String depCode) {
+    public void setDepCode(Long depCode) {
         this.depCode = depCode;
     }
+
+
+    //the orders that get yote when a department is deleted
+    @ManyToOne(cascade = CascadeType.REMOVE,
+            fetch = FetchType.EAGER)
+    private Order order;
+
+
+    @Override
+    public String toString() {
+        return "Department name: " + depName + ";\nDepartment code: " + depCode + ";";
+    }
+
 
 }

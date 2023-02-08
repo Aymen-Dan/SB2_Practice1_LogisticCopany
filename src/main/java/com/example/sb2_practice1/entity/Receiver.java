@@ -15,20 +15,27 @@ import javax.persistence.*;
 public class Receiver {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "receiverNum", nullable = false, unique = true)
-    private String receiverNum;
+    private Long receiverNum;
 
 
-    public String getReceiverNum() {
+    public Long getReceiverNum() {
         return receiverNum;
     }
 
-    public void setReceiverNum(String receiverNum) {
+    public void setReceiverNum(Long receiverNum) {
         this.receiverNum = receiverNum;
     }
 
+    //bonus
     @Column(name = "receiverName", nullable = false)
     private String receiverName;
+
+
+    @Override
+    public String toString() {
+        return "Receiver name: " + receiverName + ";\nReceiver Code: " + receiverNum + ";";
+    }
 
 }

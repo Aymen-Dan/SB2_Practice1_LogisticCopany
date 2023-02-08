@@ -17,7 +17,7 @@ import javax.persistence.*;
 public class Client {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "clientId", nullable = false, unique = true)
     private Long clientId;
 
@@ -30,6 +30,13 @@ public class Client {
     }
 
 
-    @Column(name = "clientNum", nullable = false)
-    private String clientNum;
+    //bonus
+    @Column(name = "clientName", nullable = false)
+    private String clientName;
+
+
+    @Override
+    public String toString() {
+        return "Client name: " + clientName + ";\nClient ID: " + clientId + ";";
+    }
 }

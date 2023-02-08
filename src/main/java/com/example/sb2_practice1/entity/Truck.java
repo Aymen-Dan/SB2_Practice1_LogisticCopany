@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 
 @Entity
 @Table(name = "trucks")
@@ -16,7 +17,7 @@ import javax.persistence.*;
 public class Truck {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "truckId", nullable = false, unique = true)
     private Long truckId;
 
@@ -30,10 +31,19 @@ public class Truck {
     }
 
     @Column(name = "volAvailable", nullable = false)
+    @Min(0)
     public double volAvailable; // > 0
 
     @Column(name = "weightAvailable", nullable = false)
+    @Min(0)
     public double weightAvailable; // > 0
+
+
+
+    @Override
+    public String toString() {
+        return "Truck ID: " + truckId + ";\nTruck volume: " + volAvailable + ";\nTruck weight: " + weightAvailable + ";";
+    }
 
 
 }
