@@ -23,7 +23,6 @@ public class Order {
     private Long orderId;
 
 
-
     @Column(name = "cost", nullable = false)
     @Min(50)
     private double cost; //min = 50
@@ -46,6 +45,7 @@ public class Order {
         this.orderId = orderId;
     }
 
+    //order statuses???
     public enum orderStatus { NEW, ONGOING, DONE, CANCELED, LOST }
 
 

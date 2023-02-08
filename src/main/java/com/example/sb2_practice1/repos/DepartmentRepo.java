@@ -11,5 +11,4 @@ import java.util.List;
 public interface DepartmentRepo extends JpaRepository<Department, Long> {
 
     List<Department> findBy();
-
 }

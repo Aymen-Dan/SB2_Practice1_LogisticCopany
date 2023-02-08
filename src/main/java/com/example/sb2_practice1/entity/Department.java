@@ -45,8 +45,7 @@ public class Department {
 
 
     //the orders that get yote when a department is deleted
-    @ManyToOne(cascade = CascadeType.REMOVE,
-            fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.REMOVE)
     private Order order;
 
 
